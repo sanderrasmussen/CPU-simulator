@@ -1,0 +1,3 @@
+/home/sander/kode/cpp/CPU-simulator/build/CMakeFiles/cpu_simulator.dir
+/home/sander/kode/cpp/CPU-simulator/build/CMakeFiles/edit_cache.dir
+/home/sander/kode/cpp/CPU-simulator/build/CMakeFiles/rebuild_cache.dir

@@ -1,9 +1,10 @@
 #pragma once 
 
 #include <vector>
-#include "instruction.hpp"
+#include "Instruction.hpp"
 #include "Registers.hpp"
-#include "programCounter.hpp"
+#include "ProgramCounter.hpp"
+#include "Parser.hpp"
 
 class CPU{
     public:
@@ -17,11 +18,16 @@ class CPU{
         ProgramCounter pc;
         Parser parser;
         bool running;
+        bool zeroFlag;
 
-        void excecute(const Instruction& instruction);
+        uint16_t getRegisterValue(const std::string& regString);
+        void execute(const Instruction& instruction);
         void executeMov(const Instruction& instruction);
         void executeAdd(const Instruction& instruction);
         void executeSub(const Instruction& instruction);
         void executePrint(const Instruction& instruction);
+        void executeJmp(const Instruction& instruction);
+        void executeJz(const Instruction& instruction); 
+        void executeCmp(const Instruction& instruction); 
         RegisterType parseRegister(const std::string& reg);
 };

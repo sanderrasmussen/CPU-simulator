@@ -2,7 +2,11 @@
 #include <stdexcept>
 #include <sstream>
 
-std::vector<Instruction> ParseProgram(std::vector<std::string> &lines){
+Parser::Parser(){
+
+}
+
+std::vector<Instruction> Parser::ParseProgram(std::vector<std::string> &lines){
     std::vector<Instruction> program;
 
     //loop lines and add instructions
@@ -13,8 +17,16 @@ std::vector<Instruction> ParseProgram(std::vector<std::string> &lines){
 
         stream >> op >> arg1 >> arg2;
 
+        // Remove trailing commas from arguments
+        if (!arg1.empty() && arg1.back() == ',') {
+            arg1.pop_back();
+        }
+        if (!arg2.empty() && arg2.back() == ',') {
+            arg2.pop_back();
+        }
+
         Instruction instruction;
-        instruction.opcode = toOpcode(op);
+        instruction.opcode = this->toOpcode(op);
         instruction.arg1 = arg1;
         instruction.arg2 = arg2;
         program.push_back(instruction);
@@ -23,7 +35,7 @@ std::vector<Instruction> ParseProgram(std::vector<std::string> &lines){
     return program;
 
 }
-Opcode toOpcode(const std::string &op) {
+Opcode Parser::toOpcode(const std::string &op) {
     if (op == "MOV") return Opcode::MOV;
     if (op == "ADD") return Opcode::ADD;
     if (op == "SUB") return Opcode::SUB;
@@ -36,4 +48,4 @@ Opcode toOpcode(const std::string &op) {
     if (op == "STORE") return Opcode::STORE;
 
     throw std::runtime_error("Unknown opcode: " + op);
-};
+}
