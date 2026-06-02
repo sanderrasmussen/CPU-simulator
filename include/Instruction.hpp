@@ -1,4 +1,5 @@
-#include "instruction.hpp"
+#include "Opcodes.hpp"
+#include <string>
 #pragma once
 
 struct Instruction {
@@ -6,4 +7,4 @@ struct Instruction {
 
     std::string arg1;
     std::string arg2;
-}
+};

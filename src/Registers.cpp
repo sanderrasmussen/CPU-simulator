@@ -1,19 +1,20 @@
-#include Registers.hpp
+#include <cstdint>
+#include "Registers.hpp"
 
 Registers::Registers(){
     for (int i = 0; i < COUNT; i++){
-        register[i] = 0;
+        r[i] = 0;
     }
 }
 
-Registers::set(int index, uint16_t value){
+void Registers::set(int index, uint16_t value){
     if (index >= 0 && index <= COUNT){
-        register[index] = value;
+        r[index] = value;
     }
 }
-Registers::get(int index){
+uint16_t Registers::get(int index) const{
     if (index >= 0 && index <= COUNT){
-       return register[index];
+       return r[index];
     }
     return 0;
 }

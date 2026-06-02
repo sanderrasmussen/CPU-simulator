@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-Class ProgramCounter()
+class ProgramCounter
 {
     public:
         void set(uint32_t value);

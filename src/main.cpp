@@ -1,5 +1,9 @@
+#include "CPU.hpp"
 
 int main() {
-    // Your code here
+    CPU cpu;
+
+    cpu.loadProgram("testProgram.txt");  
+    cpu.run();                            
     return 0;
 }

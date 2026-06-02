@@ -6,6 +6,6 @@ void ProgramCounter::set(uint32_t value){
 void ProgramCounter::increment(){
     pc++;
 }
-uint32_t get() const{
+uint32_t ProgramCounter::get() const{
     return pc;
 }

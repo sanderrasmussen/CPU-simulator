@@ -1,4 +1,4 @@
-enum class Opcodes{
+enum class Opcode{
    MOV,
    ADD,
    SUB,
@@ -10,4 +10,4 @@ enum class Opcodes{
    LOAD,
    STORE 
 
-}
+};
